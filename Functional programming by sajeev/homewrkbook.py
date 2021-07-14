@@ -16,9 +16,14 @@ class Book:
         if bookname in self.books:
             print(self.books[bookname]["copies"])
 
+    def sort(self):
+        res=sorted(self.books.items(),key=lambda x:x[1]["sold"], reverse=True)
+        for i in res:
+            print(i[1]["author"])
 
 obj=Book()
 bk=obj.find_book("alchemis")
+obj.sort()
 if bk==0:
     print("The book you are searching is not available")
 
